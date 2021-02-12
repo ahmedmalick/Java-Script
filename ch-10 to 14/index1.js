@@ -16,4 +16,6 @@ else if (sign === '/'){
 }
 else if (sign === '%'){
     alert(num1 % num2)
+} else{
+    alert("Please enter correct sign")
 }
