@@ -18,12 +18,14 @@ if (getHours >= 00 && getHours <= 12) {
 
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'oct', 'Nov', 'Dec']
 var DOB = new Date(`${birthDate}/${months[birthMonth - 1]}/${birthYear}`);
+// var DOB = new Date(`Dec/12/2003`);
 
-var msdiff = getToday.getTime() - DOB.getTime();
 
-var Years = Math.floor(msdiff / (1000 * 60 * 60 * 24 * 365));
-var hours = Years * 12 * 30 * 24;
-var days = Years * 12 * 30;
+var msDiff = getToday.getTime() - DOB.getTime();
+
+var Years = Math.floor(msDiff / (1000 * 60 * 60 * 24 * 365));
+var days = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+var hours = Math.floor(msDiff / (1000 * 60 * 60));
 
 var month = getToday.getMonth();
 var nextYear;
