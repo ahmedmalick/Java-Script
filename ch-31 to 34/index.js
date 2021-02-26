@@ -18,8 +18,6 @@ if (getHours >= 00 && getHours <= 12) {
 
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'oct', 'Nov', 'Dec']
 var DOB = new Date(`${birthDate}/${months[birthMonth - 1]}/${birthYear}`);
-// var DOB = new Date(`Dec/12/2003`);
-
 
 var msDiff = getToday.getTime() - DOB.getTime();
 
