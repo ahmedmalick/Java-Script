@@ -27,20 +27,27 @@ var hours = Math.floor(msDiff / (1000 * 60 * 60));
 
 var month = getToday.getMonth();
 var nextYear;
+var birthDuration;
 
-if (month >= 0 && month <= 10) {
-    nextYear = getToday.getFullYear();
-} else if (month == 11 && birthDate > 16) {
+if (month == (birthMonth - 1) && birthDate > getToday.getDate()) {
     nextYear = getToday.getFullYear() + 1;
+} else if (month <= (birthMonth - 1) && birthDate <= getToday.getDate()) {
+    nextYear = getToday.getFullYear();
 }
 
 var nextDOB = new Date(`${birthDate}/${months[birthMonth - 1]}/${nextYear}`);
 var nextBirthdayMsDiff = nextDOB.getTime() - getToday.getTime();
 var nextBirthday = Math.floor(nextBirthdayMsDiff / (60 * 60 * 24 * 1000));
 
+if (month == (birthMonth - 1) && birthDate == getToday.getDate()) {
+    birthDuration = `Happy birth day ${name}`
+} else {
+    birthDuration = `Your birthday duration days are ${nextBirthday}`
+}
+
 console.log(`Hello ${name} ${greet}`);
 console.log(`Your DOB is ${DOB}`);
 console.log(`You are ${Years} years old`);
 console.log(`Your age in days are ${days}`);
 console.log(`Your age in hours are ${hours}`);
-console.log(`Your birthday duration days are ${nextBirthday}`);
+console.log(`${birthDuration}`);
